@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>天气数据图表的显示</title>
+<script type="text/javascript" src="./js/echarts.js"></script>
+<script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/demo.css" />
+<link rel="stylesheet" href="./css/tabs-colorful.css" />
+<link rel="stylesheet" href="./css/font-awesome.min.css" />
+</head>
+<body>
+	<header class="stationinfo">
+		<div>
+			<ul>
+				<li><span id="stn"></span></li>
+				<li><span id="wban"></span></li>
+			</ul>
+		</div>
+	</header>
+	<div class="tabs-icons">
+		<ul>
+			<li><a class="first-tab tab-active" data-index="0" href="#"><i
+					class="fa fa-thermometer-half"></i>温度类数据</a></li>
+			<li><a class="second-tab" data-index="1" href="#"><i
+					class="fa fa-bar-chart"></i>气压类数据</a></li>
+			<li><a class="third-tab" data-index="2" href="#"><i
+					class="fa fa-snowflake-o"></i>降水和降雪数据</a></li>
+			<li><a class="fourth-tab" data-index="3" href="#"><i
+					class="fa fa fa-low-vision"></i>能见度数据</a></li>
+			<li><a class="fifth-tab" data-index="4" href="#"><i
+					class="fa fa-ravelry"></i>风速类数据</a></li>
+			<li><a class="sixth-tab" data-index="5" href="#"><i
+					class="fa fa-pie-chart"></i>特殊天气类数据</a></li>
+		</ul>
+	</div>
+	<div class="tabhhh">
+
+			<div id="temp" style="width: 30%; height: 300px; float:left"></div>
+
+			<div id="pressure" style="width: 30%; height: 300px; float:left" ></div>
+
+			<div id="rainFall" style="width: 30%; height: 300px; float:left"></div>
+
+			<div id="visib" style="width: 30%; height: 300px; float:left"></div>
+
+			<div id="airSpeed" style="width: 30%; height: 300px; float:left"></div>
+			
+			<div id="frshtt" style="width: 30%; height: 300px; float:left"></div>
+	</div>
+	<!-- <div id="main" style="width: 1200px; height: 500px; float: center"></div> -->
+	<!-- 存放station的编号 -->
+	<input type="hidden" id="station_id" name="stationId" value="" />
+	<script type="text/javascript">
+		$(document).ready(
+			function(){
+				//获取从stationInfo页面传递过来的站点编号
+				var num = (window.location.search).split("=")[1];
+				var stationNum = num.split("-");
+				//将站点编号存放在input框中
+				document.getElementById("station_id").value=stationNum[0]+stationNum[1];
+				document.getElementById("stn").innerText="站点编号为："+num;
+				
+				showTemp("temp");
+				showPressure("pressure");
+				showRainFall("rainFall");
+				showVisib("visib");
+				showAirSpeed("airSpeed");
+				showFRSHTT("frshtt");
+				/* //首先获取存放列表的div
+				var widget = $('.tabs-icons');
+				//获取显示图表的div
+				//var content = widget.find('.tabs-content-placeholder > div');
+				//获取列表上的每个超链接标签
+				var tabs = widget.find('ul a');
+				//起始状态显示温度类数据,调用显示温度的js方法
+				showTemp("temp");
+				//给标签设置点击事件
+				tabs.on('click', function(e){
+					//通过web浏览器不要执行与事件关联的默认操作
+					e.preventDefault();
+					
+					//获取标签上的data-index属性值
+					var index = $(this).data('index');
+					//移除超链接标签上的tab-active，
+					tabs.removeClass('tab-active');
+					//content.removeClass('tab-content-active');
+					
+					//为当前点击的标签设置tab-active
+					$(this).addClass('tab-active');
+					//content.eq(index).addClass('tab-content-active');
+					//根据data-index属性值，判断将要显示那个图表，调用显示的js方法
+					switch (index) {
+							case 0:
+								showTemp("temp");
+								break;
+							case 1:
+								showPressure("pressure");
+								break;
+							case 2:
+								showRainFall("rainFall");
+								break;
+							case 3:
+								showVisib("visib");
+								break;
+							case 4:
+								showAirSpeed("airSpeed");
+								break;
+							case 5:
+								showFRSHTT("frshtt");
+								break;
+					} */
+				});
+			//});
+		
+	</script>
+	<script type="text/javascript" src="./js/temp.js"></script>
+	<script type="text/javascript" src="./js/airSpeed.js"></script>
+	<script type="text/javascript" src="./js/frshtt.js"></script>
+	<script type="text/javascript" src="./js/pressure.js"></script>
+	<script type="text/javascript" src="./js/rainFall.js"></script>
+	<script type="text/javascript" src="./js/visib.js"></script>
+</body>
+</html>

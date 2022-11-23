@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>温度类数据图表</title>
+<script type="text/javascript" src="./js/echarts.js"></script>
+<script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+	<div id="main" style="width: 1200px; height: 600px;"></div>
+	<script type="text/javascript">
+	//alert(window.location.search);
+		//window.location.search得到的是url中？后后面的数据，然后按照=切分，取数组第二个
+		var num = (window.location.search).split("=")[1];
+		var myChart = echarts.init(document.getElementById(id));
+		//var num = "74917100479";
+		var url = "HBaseController";
+		var urlP = url + "?station_id=" + num;
+		$.get(urlP, function(data) {
+			//alert(data);
+			data = JSON.parse(data);
+			//alert(data);
+			myChart.setOption(option = {
+				title : {
+					text : '温度类图表'
+				},
+				tooltip : {
+					trigger : 'axis'
+				},
+				legend: {
+			        data:['平均温度','最高温度','最低温度','平均露点']
+			    },
+				xAxis : {
+					data : data.map(function(item) {
+						return item.date;
+					})
+				},
+				yAxis : {
+					splitLine : {
+						show : false
+					}
+				},
+				dataZoom: [/* {
+		            startValue: '2016-01-01'
+		        },  */{
+		            type: 'inside'
+		        }],
+				series : [ {
+					name : '平均温度',
+					type : 'line',
+					smooth : true,
+					data : data.map(function(item) {
+						return item.temp;
+					})
+				}, {
+					name : '平均露点',
+					type : 'line',
+					smooth : true,
+					data : data.map(function(item) {
+						return item.dewp;
+					})
+				}, {
+					name : '最高温度',
+					type : 'line',
+					smooth : true,
+					data : data.map(function(item) {
+						return item.max;
+					})
+				}, {
+					name : '最低温度',
+					type : 'line',
+					smooth : true,
+					data : data.map(function(item) {
+						return item.min;
+					})
+				} ]
+			});
+		});
+	</script>
+</body>
+</html>

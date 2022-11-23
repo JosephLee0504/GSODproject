@@ -1,0 +1,118 @@
+.tabs-icons {
+	font: bold 13px sans-serif;
+	margin: 30px auto 30px;
+	max-width: 95%;
+	text-align: center;
+}
+
+/* The tabs */
+.tabs-icons ul {
+	list-style: none;
+	text-align: left;
+	margin: 0;
+	padding: 0;
+}
+
+.tabs-icons ul li {
+	display: inline-block;
+	margin-bottom: -1px;
+}
+
+.tabs-icons ul li a {
+	display: block;
+	text-decoration: none;
+	font-size: 16px;
+	border: 1px solid transparent;
+	border-bottom: 0;
+	border-radius: 3px 3px 0 0;
+	padding: 15px 18px 10px;
+}
+
+.tabs-icons ul li i {
+	padding-right: 8px;
+}
+
+.tabs-icons .first-tab {
+	color: #4d3bd0;
+}
+
+.tabs-icons .second-tab {
+	color: #1996f3;
+}
+
+.tabs-icons .third-tab {
+	color: #fdc02d;
+}
+
+.tabs-icons .fourth-tab {
+	color: #fc323e;
+}
+
+.tabs-icons .fifth-tab {
+	color: #fc7c23;
+}
+
+.tabs-icons .sixth-tab {
+	color: #32db2d;
+}
+
+.tabs-icons .seventh-tab {
+	color: #ab28f7;
+}
+
+.tabs-icons .tab-active {
+	border-color: #dddddd;
+	background-color: #ffffff;
+}
+
+/* The content */
+.tabs-icons .tabs-content-placeholder {
+	overflow: hidden;
+	border: 1px solid #dddddd;
+	font-weight: normal;
+	background-color: #fff;
+	padding: 25px 32px 30px;
+	margin: 0 auto;
+	text-align: center;
+	width: auto;
+	height: auto;
+	min-height: 100%; /*设置最小高度*/
+	max-height: 100%; /*设置最大高度*/
+}
+
+.tabs-icons .tabs-content-placeholder div {
+	display: none;
+}
+
+.tabs-icons .tabs-content-placeholder div.tab-content-active {
+	display: block;
+}
+
+.tabs-icons .tabs-content-placeholder div.tab-content-active div {
+	display: block;
+}
+
+.tabs-icons .tabs-content-placeholder div.tab-content-active div div {
+	display: block;
+}
+
+.tabs-icons .tabs-content-placeholder div p {
+	color: #565a5c;
+	line-height: 1.45;
+	text-align: left;
+	margin: 5px 0 20px;
+}
+
+.tabs-icons .tabs-content-placeholder div img {
+	max-width: 100%;
+}
+
+@media ( max-width : 500px) {
+	.tabs-icons ul li a {
+		font-size: 13px;
+		padding: 12px 15px;
+	}
+	.tabs-icons ul li i {
+		display: none;
+	}
+}
